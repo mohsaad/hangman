@@ -170,7 +170,7 @@ class Hangman():
 		self.currentWord = choice(self.words)
 
 		self.guesses = []
-		self.correctLetters = ['_' for i in range(0, len(self.currentWord))]
+		self.correctLetters = ['_' for i in range(1, len(self.currentWord))]
 		self.currentLetterList = list(self.currentWord)
 
 		self.state = 0
@@ -258,7 +258,7 @@ class Hangman():
 				break
 
 		if(again == 1):
-			playGame()
+			self.playGame()
 
 
 
