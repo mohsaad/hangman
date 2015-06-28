@@ -252,8 +252,6 @@ class Hangman():
 	
 		self.resetGame()
 
-		
-
 		while(self.state < len(self.hang_tuple) - 1):
 
 			for i in range(0, len(self.correctLetters)):
