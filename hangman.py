@@ -153,7 +153,7 @@ class Hangman():
 		self.allowed_letters = allowed_chars = set('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
 
 		# pick a word
-		self.currentWord = choice(self.worda = s)
+		self.currentWord = choice(self.words)
 
 		# create an array of guesses to see if we have guessed it before
 		self.guesses = []
@@ -198,7 +198,7 @@ class Hangman():
 	def endGame(self):
 		if "_" not in self.correctLetters:
 			print "Congratulations! You guessed the word {0}!".format(self.currentWord)
-		elif self.state < len(self.hang_tuple) - 1:
+		elif (self.state < len(self.hang_tuple) - 1):
 			print "You lost. The word was {0}.".format(self.currentWord)
 			print self.hang_tuple(state)
 		else:
@@ -240,7 +240,14 @@ class Hangman():
 
 			if(again == 2):
 				continue
-			elif 
+			elif again == 1 or again == 0:
+				break
+
+		if(again == 1):
+			playGame()
+
+
+
 
 
 
