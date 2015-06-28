@@ -168,10 +168,8 @@ class Hangman():
 		# define a name
 		print "Welcome to Hangman!"
 		self.person  = raw_input('Enter your name: ')
-		print "Let's play Hangman, " + self.person + "!"
 
-		# person
-		self.person = ''
+
 		# define letters you are allowed to use
 		self.allowed_letters = allowed_chars = set('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
 
@@ -251,7 +249,7 @@ class Hangman():
 	def playGame(self):
 	
 		self.resetGame()
-
+		print "Let's play Hangman, " + self.person + "!"
 		while(self.state < len(self.hang_tuple) - 1):
 
 			for i in range(0, len(self.correctLetters)):
