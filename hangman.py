@@ -165,6 +165,11 @@ class Hangman():
 		self.hang_tuple = createHangman()
 		self.words = load_words(filename)
 
+		# define a name
+		print "Welcome to Hangman!"
+		self.person  = raw_input('Enter your name: ')
+		print "Let's play Hangman, " + self.person + "!"
+
 		# person
 		self.person = ''
 		# define letters you are allowed to use
@@ -180,6 +185,8 @@ class Hangman():
 
 		# state keeps track of how many incorrect guesses
 		self.state = 0
+
+
 
 	def resetGame(self):
 		# reset everything from above, no need to load file again
@@ -245,9 +252,7 @@ class Hangman():
 	
 		self.resetGame()
 
-		print "Welcome to Hangman!"
-		self.person  = raw_input('Enter your name: ')
-		print "Let's play Hangman, " + self.person + "!"
+		
 
 		while(self.state < len(self.hang_tuple) - 1):
 
