@@ -149,6 +149,8 @@ class Hangman():
 		self.hang_tuple = createHangman()
 		self.words = load_words(filename)
 
+		# person
+		self.person = ''
 		# define letters you are allowed to use
 		self.allowed_letters = allowed_chars = set('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
 
@@ -198,15 +200,15 @@ class Hangman():
 	def endGame(self):
 		if "_" not in self.correctLetters:
 			print "Congratulations! You guessed the word {0}!".format(self.currentWord)
-		elif (self.state < len(self.hang_tuple) - 1):
-			print "You lost. The word was {0}.".format(self.currentWord)
-			print self.hang_tuple(state)
+		elif (self.state == len(self.hang_tuple)):
+			print "You lost {0}. The word was {1}".format(self.person, self.currentWord)
+			print self.hang_tuple[self.state - 1]
 		else:
 			return 2
 
 		playAgainBool = raw_input("Play again? (y/n): ")
 
-		while(playAgainBool != 'y' or playAgainBool != 'n'):
+		while(playAgainBool != 'y' and playAgainBool != 'n'):
 			playAgainBool = raw_input("Play again? (y/n): ")
 
 		if(playAgainBool == 'y'):
@@ -222,8 +224,8 @@ class Hangman():
 		self.resetGame()
 
 		print "Welcome to Hangman!"
-		person  = raw_input('Enter your name: ')
-		print "Let's play Hangman, " + person + "!"
+		self.person  = raw_input('Enter your name: ')
+		print "Let's play Hangman, " + self.person + "!"
 
 		while(self.state < len(self.hang_tuple)):
 
@@ -233,7 +235,7 @@ class Hangman():
 
 			print self.hang_tuple[self.state]
 
-			guess = raw_input("Enter a letter to guess: ")
+			letter = raw_input("Enter a letter to guess: ")
 
 			self.makeGuess(letter)
 
