@@ -221,10 +221,10 @@ class Hangman():
 
 	def endGame(self):
 		if "_" not in self.correctLetters:
-			print "Congratulations! You guessed the word {0}!".format(self.currentWord)
-		elif (self.state == len(self.hang_tuple)):
+			print "Congratulations {0}! You guessed the word {1}".format(self.person, self.currentWord)
+		elif (self.state == len(self.hang_tuple) - 1):
 			print "You lost {0}. The word was {1}".format(self.person, self.currentWord)
-			print self.hang_tuple[self.state - 1]
+			print self.hang_tuple[self.state]
 		else:
 			return 2
 
@@ -249,7 +249,7 @@ class Hangman():
 		self.person  = raw_input('Enter your name: ')
 		print "Let's play Hangman, " + self.person + "!"
 
-		while(self.state < len(self.hang_tuple)):
+		while(self.state < len(self.hang_tuple) - 1):
 
 			for i in range(0, len(self.correctLetters)):
 				print self.correctLetters[i],
