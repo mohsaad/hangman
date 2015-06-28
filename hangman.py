@@ -228,7 +228,8 @@ class Hangman():
 		while(self.state < len(self.hang_tuple)):
 
 			for i in range(0, len(self.correctLetters)):
-				print self.correctLetters[i]
+				print self.correctLetters[i],
+			print
 
 			print self.hang_tuple[self.state]
 
