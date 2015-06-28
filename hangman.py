@@ -182,6 +182,12 @@ class Hangman():
 			print "Not an allowed letter!"
 			return
 
+		if letter in self.guesses:
+			print "You guessed that already!"
+			return
+
+		self.guesses.append(letter)
+
 		letter_in_list = False
 
 		for i in range(0, len(self.currentLetterList)):
@@ -231,6 +237,11 @@ class Hangman():
 
 			for i in range(0, len(self.correctLetters)):
 				print self.correctLetters[i],
+			print
+
+			print "Guesses:"
+			for i in range(0, len(self.guesses)):
+				print self.guesses[i],
 			print
 
 			print self.hang_tuple[self.state]
